@@ -3,7 +3,7 @@ import { FETCH_USERS, USER_REPO, USER_INFO } from '../actions/types';
 const initialState = {
     searched: [],
     repo: [],
-    info: []
+    info: {}
 }
 
 export default function (state = initialState, action) {
@@ -17,6 +17,12 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 repo: action.payload
+            };
+        case USER_INFO:
+            console.log(action.payload)
+            return {
+                ...state,
+                info: action.payload
             }
         default: return state;
     }

@@ -18,3 +18,12 @@ export const fetchRepos = (username) => dispatch => {
             payload: repos
         }));
 }
+
+export const fetchUserInfo = (username) => dispatch => {
+    fetch(`https://api.github.com/users/${username}`)
+        .then(res => res.json())
+        .then(info => dispatch({
+            type: USER_INFO,
+            payload: info
+        }));
+}
