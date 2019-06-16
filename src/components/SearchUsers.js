@@ -12,15 +12,6 @@ class SearchUsers extends Component {
         }
     }
 
-    /*componentWillReceiveProps(nextProps) {
-        if(nextProps.users){
-            console.log(nextProps.users);
-            //this.props.users.push(nextProps.users);
-            //React.cloneElement(this.props.users, this.props.users);
-            //this.props.users = nextProps.users;
-        }
-    }*/
-
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value })
     }
@@ -42,9 +33,10 @@ class SearchUsers extends Component {
 
         return (
             <div>
+                <h3>Welcome, Search for users</h3>
                 <form onSubmit={this.onSubmit}>
-                    <input type="text" name="search" onChange={this.onChange} value={this.state.search} placeholder="Find a member..." />
-                    <button type="submit">Search</button>
+                    <input type="text" name="search" onChange={this.onChange} value={this.state.search} style={{padding: '10px'}} placeholder="Find a member..." />
+                    <button type="submit" style={{padding: '10px'}}>Search</button>
                 </form>
                 <div>
                     <h4>{user}</h4>

@@ -23,6 +23,14 @@
   color: #61dafb;
 }
 
+.grayCol {
+  color: rgb(109, 109, 109);
+}
+
+.blueCol {
+  color: rgb(4, 0, 255);
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

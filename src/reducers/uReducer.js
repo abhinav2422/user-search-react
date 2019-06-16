@@ -19,7 +19,6 @@ export default function (state = initialState, action) {
                 repo: action.payload
             };
         case USER_INFO:
-            console.log(action.payload)
             return {
                 ...state,
                 info: action.payload

@@ -17,8 +17,10 @@ class App extends Component {
               <Route exact path="/" component={SearchUsers} />
               <Route exact path="/user/:username" render={props => (
                 <React.Fragment>
-                  <UserRepo {...props} />
-                  <UserInfo {...props} />
+                  <div style={getStyle}>
+                    <UserInfo {...props} />
+                    <UserRepo {...props} />
+                  </div>
                 </React.Fragment>
               )} />
             </header>
@@ -30,7 +32,8 @@ class App extends Component {
 }
 
 const getStyle = {
-  display: 'grid',
+  display: 'flex',
+  margin: '15px',
 }
 
 export default App;

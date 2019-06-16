@@ -10,8 +10,10 @@ class UserInfo extends Component {
 
     render() {
         return (
-            <div>
-                <img src={this.props.info.avatar_url}></img>
+            <div style={{marginRight:'180px'}}>
+                <img src={this.props.info.avatar_url} alt="User Avatar" style={{width: '250px'}}></img>
+                <h3>{this.props.info.name}</h3>
+                <h5 className="grayCol">{this.props.info.login}</h5>
             </div>
         )
     }
