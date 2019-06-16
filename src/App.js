@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import User from './components/User';
+import UserRepo from './components/UserRepo';
 import SearchUsers from './components/SearchUsers';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -13,7 +13,8 @@ class App extends Component {
         <Provider store={store}>
           <div className="App">
             <header className="App-header">
-              <Route path="/" component={SearchUsers} />
+              <Route exact path="/" component={SearchUsers} />
+              <Route path="/user/:username" component={UserRepo} />
             </header>
           </div>
         </Provider>

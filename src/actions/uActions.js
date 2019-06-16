@@ -1,4 +1,4 @@
-import { FETCH_USERS, USER } from './types';
+import { FETCH_USERS, USER_REPO, USER_INFO } from './types';
 
 export const fetchUsers = (searchQ) => dispatch => {
     fetch(`https://api.github.com/search/users?q=${searchQ}`)
@@ -10,6 +10,11 @@ export const fetchUsers = (searchQ) => dispatch => {
         //console.log(searchQ);
 }
 
-export const IndiUser = (username) => dispatch => {
-    
+export const fetchRepos = (username) => dispatch => {
+    fetch(`https://api.github.com/users/${username}/repos`)
+        .then(res => res.json())
+        .then(repos => dispatch({
+            type: USER_REPO,
+            payload: repos
+        }));
 }

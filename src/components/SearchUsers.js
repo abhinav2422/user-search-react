@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchUsers } from '../actions/uActions';
+import { Link } from 'react-router-dom';
 
 class SearchUsers extends Component {
     constructor(props) {
@@ -34,8 +35,8 @@ class SearchUsers extends Component {
     render() {
         var user = this.props.users.map(user => (
             <div key={user.id} style={getstyle}>
-                <img src={user.avatar_url} style={imgStyle}></img>
-                <h3>{user.login}</h3>
+                <Link to={"/user/"+user.login}><img src={user.avatar_url} alt="User" style={imgStyle}></img></Link>
+                <Link to={"/user/"+user.login}><h3>{user.login}</h3></Link>
             </div>
         ));
 
@@ -55,13 +56,11 @@ class SearchUsers extends Component {
 
 SearchUsers.propTypes = {
     fetchUsers: PropTypes.func.isRequired,
-    //users: PropTypes.array.isRequired,
-    //newUsers: PropTypes.object
+    users: PropTypes.array.isRequired,
 }
 
 const mapStateToProps = state => ({
     users: state.users.searched,
-    newUsers: state.users.particular
 });
 
 const getstyle = {
@@ -73,7 +72,7 @@ const getstyle = {
 
 const imgStyle = {
     height: '100px',
-    marginRight: '200px'
+    marginRight: '200px',
 }
 
 export default connect(mapStateToProps, { fetchUsers })(SearchUsers);

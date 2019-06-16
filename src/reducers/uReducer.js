@@ -1,8 +1,9 @@
-import { FETCH_USERS, USER } from '../actions/types';
+import { FETCH_USERS, USER_REPO, USER_INFO } from '../actions/types';
 
 const initialState = {
     searched: [],
-    particular: {}
+    repo: [],
+    info: []
 }
 
 export default function (state = initialState, action) {
@@ -12,7 +13,11 @@ export default function (state = initialState, action) {
                 ...state,
                 searched: action.payload
             };
-        //case NEW_POST:
+        case USER_REPO:
+            return {
+                ...state,
+                repo: action.payload
+            }
         default: return state;
     }
 }
